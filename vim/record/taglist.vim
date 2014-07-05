@@ -1,0 +1,1 @@
+{"generated_by":"Vimana-2010.05607","install_type":"auto","version":0.2,"files":[{"checksum":"5929aca911d2b603683767bd371117e7","file":"/Users/yen3/.vim/doc/taglist.txt"},{"checksum":"5ebf2196223af96a4762cb0b6bf06e46","file":"/Users/yen3/.vim/plugin/taglist.vim"}],"package":"taglist.vim"}

@@ -1,0 +1,276 @@
+syntax enable 
+set number
+set ttyfast
+
+filetype on
+filetype plugin on
+
+""" set encoding to UTF-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
+set termencoding=utf-8
+set ambiwidth=double
+
+""" set color scheme
+"set background=dark
+set t_Co=256
+color yen3 
+
+set title
+set showmode            " Show current input mode in status line
+set cursorline         " Show Cursor Line in Underline
+"set showtabline=2
+set wildmenu " Show autocomplete menus.
+set visualbell
+
+""" enable mouse
+"set mouse=nv
+"set ttymouse=xterm
+"set mousemodel=extend
+
+""" Search Setting
+set showcmd
+set incsearch
+set showmatch
+
+set hls
+
+""" Backup Setting
+set backup
+set backupdir=$HOME/.vim/backup
+
+""" set status bar
+set laststatus=2
+set statusline=%4*%<\ %1*[%F]
+set statusline+=%4*\ %5*[%{&encoding}, " encoding
+set statusline+=%{&fileformat}]%m " file format
+set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+highlight User1 cterm=NONE ctermfg=203 ctermbg=NONE
+highlight User2 term=underline cterm=underline ctermfg=77     ctermbg=NONE
+highlight User3 term=underline cterm=underline ctermfg=247    ctermbg=NONE
+highlight User4 term=underline cterm=underline ctermfg=white  ctermbg=NONE
+highlight User5 ctermfg=87
+highlight User6 ctermfg=254
+
+""" set folding
+set foldnestmax=3
+"set foldmethod=syntax
+"set foldcolumn=4
+
+""" Set editing Tab
+set autoindent
+set expandtab
+set shiftwidth=4
+set softtabstop=8
+set tabstop=4
+set smarttab
+set backspace=indent,eol,start 
+
+""" set help doc
+helptags $HOME/.vim/doc 
+
+
+""" Key Mapping
+nmap <silent><F2> :NERDTree<CR>
+nmap <silent><F3> :TlistToggle<CR>
+nmap <silent><F4> :SrcExplToggle<CR>
+nmap <silent><F6> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q && cscope -bR<CR>
+nmap <silent><F7> :set foldmethod=syntax<CR>
+
+"nmap cr=    $F=lcf;
+"nmap cl=    $F=hc^
+
+nmap <silent><LEADER>g :run macros/gdb_mappings.vim<CR>
+
+nmap <LEADER>tc :tabnew<CR>
+nmap <LEADER>te :tabedit<SPACE>
+nmap <LEADER>tm :tabmove<SPACE>
+nmap <LEADER>tk :tabclose<CR>
+nmap <C-H> :tabprev<CR>
+nmap <C-L> :tabnext<CR>
+
+
+
+""" 讓我們可以使用 tab 來縮排
+nmap <tab> v>
+nmap <s-tab> v<
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+""" let command mode has bash key binding
+cmap <c-a> <home>
+cmap <c-e> <end>
+cnoremap <c-b> <left>
+cnoremap <c-d> <del>
+cnoremap <c-f> <right>
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+cnoremap <esc><c-b> <s-left>
+cnoremap <esc><c-f> <s-right>
+
+""" Source Code Formating
+autocmd Filetype c,cpp :set cindent
+autocmd Filetype c,cpp :set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s 
+
+""" Taglist plugin setting
+let Tlist_Auto_Update = 1
+let Tlist_Use_Right_Window = 1
+
+""" NERDTree plugin setting
+let NERDTreeWinSize = 20
+
+""" Omnicppcomplete plugin setting
+set tags+=~/.vim/tags/cpp         " add tag list
+
+set nocp
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_DisplayMode = 1
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+
+
+""" Tab setting
+autocmd TabLeave * let g:LastUsedTabPage = tabpagenr()
+function! SwitchLastUsedTab()
+    if exists("g:LastUsedTabPage")
+        execute "tabnext " g:LastUsedTabPage
+    endif
+endfunction
+nmap tt :call SwitchLastUsedTab()<CR>
+
+set ofu=syntaxcomplete#Complete
+
+""" Auto remove each line-end space 
+autocmd FileType c,cpp,java,php,perl,python,ruby,sh,v autocmd BufWritePre  :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+
+com! -bang -nargs=? SQFix cal QFixToggle(<bang>0)
+fu! QFixToggle(forced)
+    if exists("g:qfix_win") && a:forced == 0
+        cclose
+        unlet g:qfix_win
+    else
+        copen 10
+        let g:qfix_win = bufnr("$")
+        en
+    endf
+
+nn <leader>m :make -j4<cr>
+nn <leader>, :make clean<cr>
+nn <leader>q :SQFix<cr>
+
+"" Set snipMate
+"let g:acp_behaviorSnipmateLength = 1
+
+""" VIM Man setting
+runtime! ftplugin/man.vim
+nmap K <esc>:Man <cword><cr>
+
+""" Session Key binding
+nmap <LEADER>se :call SaveSessionFile()<CR>
+function! SaveSessionFile()
+    let filename="yen3_session.vim"
+    if filereadable(filename)
+        exec "mks! yen3_session.vim"
+    else
+        exec "mks yen3_session.vim"
+
+    endif
+    echo "Save session as yen3_session.vim"
+endfunction
+
+
+""" Header File/ Source File switching
+nmap fh :call FileHeaderSource()<cr>
+function! FileHeaderSource()
+    let fextname=expand("%:e")
+    let fname=expand("%:r")
+    if fextname=="h"
+         if filereadable(fname.".cpp")
+             exec ':e '.fname.".cpp"
+             return
+         endif
+        if filereadable(fname.".c")
+            exec ':e '.fname.".c"
+            return
+        endif
+    else
+        if filereadable(fname.".h")
+             exec ':e '.fname.".h"
+             return
+        endif
+    endif
+    echo "file not found"
+endfunction
+
+
+" Enable syntax highlighting for LLVM files. To use, copy
+" " utils/vim/llvm.vim to ~/.vim/syntax .
+augroup filetype
+    au! BufRead,BufNewFile *.ll     set filetype=llvm
+augroup END
+
+" Enable syntax highlighting for tablegen files. To use, copy
+" utils/vim/tablegen.vim to ~/.vim/syntax .
+augroup filetype
+    au! BufRead,BufNewFile *.td     set filetype=tablegen
+augroup END
+
+" Python autocomplete setting
+let g:pydiction_location = '~/Documents/rc/vim/pydiction/complete-dict'
+autocmd BufRead,BufNewFile *.py vmap f :w !python
+
+" LaTex File Spell Check
+augroup filetype
+    au! BufRead,BufNewFile *.tex     set spell 
+augroup END
+
+
+"""" Source Explorer Plugin setting
+
+" // Set the height of Source Explorer window 
+let g:SrcExpl_winHeight = 8 
+
+" // Set 100 ms for refreshing the Source Explorer 
+let g:SrcExpl_refreshTime = 100 
+
+" // Set "Enter" key to jump into the exact definition context 
+let g:SrcExpl_jumpKey = "<ENTER>" 
+
+" // Set "Space" key for back from the definition context 
+let g:SrcExpl_gobackKey = "<SPACE>" 
+
+" // In order to Avoid conflicts, the Source Explorer should know what plugins 
+" // are using buffers. And you need add their bufname into the list below 
+" // according to the command ":buffers!" 
+let g:SrcExpl_pluginList = [ 
+        \ "__Tag_List__", 
+        \ "_NERD_tree_", 
+        \ "Source_Explorer" 
+    \ ] 
+" // Enable/Disable the local definition searching, and note that this is not 
+" // guaranteed to work, the Source Explorer doesn't check the syntax for now. 
+" // It only searches for a match with the keyword according to command 'gd' 
+let g:SrcExpl_searchLocalDef = 1 
+
+" // Let the Source Explorer update the tags file when opening 
+let g:SrcExpl_isUpdateTags = 1 
+
+" // Use program 'ctags' with argument '--sort=foldcase -R' to create or 
+" // update a tags file 
+let g:SrcExpl_updateTagsCmd = "ctags -R --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q && cscope -bR"
+
+" // Set "<F12>" key for updating the tags file artificially 
+let g:SrcExpl_updateTagsKey = "<F12>"
+
+
+"let python_highlight_all = 1
+
