@@ -1,6 +1,7 @@
+#vim:set ft=gitconfig
 [user]
-	email = whlin626@gmail.com
-	name = whlin
+	name = yen3
+	email = yen3rc@gmail.com
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	st = status
@@ -9,10 +10,7 @@
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 	co = checkout
 	br = branch
-    ci = commit
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
+	ci = commit
 [color]
     diff = auto
     status = auto
@@ -25,4 +23,10 @@
     color = true
 [core]
 	editor = vim
-	excludesfile = /Users/whlin/.gitignore_global
+	excludesfile = /Users/yen3/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
