@@ -66,6 +66,12 @@ INSTALL					*unite-outline-install*
 	outline" command if you succeeded the installation (and unite-outline
 	supports the filetype of the buffer).
 
+
+	C, C++, Java, etc~
+
+		* Exuberant Ctags (Required)
+		  http://ctags.sourceforge.net/
+
 ==============================================================================
 USAGE					*unite-outline-usage*
 
@@ -238,8 +244,8 @@ VARIABLES				*unite-outline-variables*
 		      \ 'id'      : 'Special',
 		      \ 'macro'   : 'Macro',
 		      \ 'method'  : 'Function',
-		      \ 'normal'  : g:unite_abbr_highlight,
-		      \ 'package' : g:unite_abbr_highlight,
+		      \ 'normal'  : 'Normal',
+		      \ 'package' : 'Normal',
 		      \ 'special' : 'Macro',
 		      \ 'type'    : 'Type',
 		      \ 'level_1' : 'Type',
@@ -247,14 +253,26 @@ VARIABLES				*unite-outline-variables*
 		      \ 'level_3' : 'Identifier',
 		      \ 'level_4' : 'Constant',
 		      \ 'level_5' : 'Special',
-		      \ 'level_6' : g:unite_abbr_highlight,
-		      \ 'parameter_list': g:unite_abbr_highlight,
+		      \ 'level_6' : 'Normal',
+		      \ 'parameter_list': 'Normal',
 		      \ }
 <
 		The patterns to specify the regions to be highlighted are
 		defined in each filetypes' outline infos.
 
 		See |unite-outline-info-highlight_rules|.
+
+					*g:unite_source_outline_ctags_program*
+	g:unite_source_outline_ctags_program
+
+		String pointing to the absolute path of the ctags executable.
+
+		Default value is ''
+
+		Example: >
+		let g:unite_source_outline_ctags_program =
+		      \ '/usr/local/bin/ctags'
+<
 
 ------------------------------------------------------------------------------
 SETTINGS EXAMPLE			*unite-outline-settings-example*
@@ -761,7 +779,7 @@ EXTERNAL PROGRAMS			*unite-outline-info-external-programs*
 	must be able to be executed by |system()| with the proper setting of
 	PATH environment variable.
 
-	C, C++, Java ~
+	C, C++, Java, etc~
 
 		* Exuberant Ctags (Required)
 		  http://ctags.sourceforge.net/
@@ -803,8 +821,8 @@ FUNCTIONS				*unite-outline-functions*
 
 		Returns a highlight group name associated with {name}.
 		If {name} has no association, tries following arguments until
-		the association is found. If not found finally, returns the
-		value of |g:unite_abbr_highlight|.
+		the association is found. If not found finally, returns
+		"Normal".
 
 		See |g:unite_source_outline_highlight|.
 
