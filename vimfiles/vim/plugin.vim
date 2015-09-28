@@ -55,7 +55,7 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-"NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 "NeoBundleLazy 'Shougo/vimshell.vim', { 'autoload' : {
       ""\ 'commands' : 'VimShell'
       ""\ }}
