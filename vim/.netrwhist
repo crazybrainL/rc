@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/etc/modprobe.d'
-let g:netrw_dirhist_2='/etc/init'
-let g:netrw_dirhist_3='/home/yen3/doc/rc/zshrc'
-let g:netrw_dirhist_4='/Users/whlin/Documents/rc/zshrc/oh-my-zsh/themes'
-let g:netrw_dirhist_5='/Users/whlin/.vim'
-let g:netrw_dirhist_6='/Users/whlin/.vimorig1'
-let g:netrw_dirhist_7='/Users/whlin/Documents/rc/vim/plugin'

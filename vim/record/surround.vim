@@ -1,1 +1,0 @@
-{"generated_by":"Vimana-2010.05607","install_type":"auto","version":0.2,"files":[{"checksum":"79fdbfca7d5312dafddf7e66261147fd","file":"/Users/yen3/.vim/doc/surround.txt"},{"checksum":"643a435ff2c44dc470692ea68f9f1075","file":"/Users/yen3/.vim/plugin/surround.vim"}],"package":"surround.vim"}
