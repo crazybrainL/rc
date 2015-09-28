@@ -35,4 +35,5 @@ vim-scala
 vim-snippets
 vim-speeddating
 vim-surround
+vimfiler.vim
 vimproc.vim
