@@ -56,10 +56,10 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 NeoBundle 'Shougo/vimfiler.vim'
-"NeoBundleLazy 'Shougo/vimshell.vim', { 'autoload' : {
-      "\ 'commands' : 'VimShell'
-      "\ }}
-      "
+NeoBundleLazy 'Shougo/vimshell.vim', { 'autoload' : {
+      \ 'commands' : 'VimShell'
+      \ }}
+      
 
 "" unite.vim and plugins
 NeoBundleLazy 'Shougo/unite.vim', { 'autoload' : {

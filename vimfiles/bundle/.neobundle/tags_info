@@ -37,3 +37,4 @@ vim-speeddating
 vim-surround
 vimfiler.vim
 vimproc.vim
+vimshell.vim
