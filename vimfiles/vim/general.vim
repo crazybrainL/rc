@@ -10,7 +10,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax enable
 set t_Co=256            " 256 color mode
-"set background=dark
+set background=dark
+"set background=white
 
 color Tomorrow-Night-Bright
 
@@ -192,7 +193,7 @@ autocmd FileType c,cpp,java,php,perl,python,haskell,markdown,mkd,ruby,sh,v,tex,s
 if &term =~ "xterm.*"
     let &t_ti = &t_ti . "\e[?2004h"
     let &t_te = "\e[?2004l" . &t_te
-    function XTermPasteBegin(ret)
+    function! XTermPasteBegin(ret)
         set pastetoggle=<Esc>[201~
         set paste
         return a:ret
