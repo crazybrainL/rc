@@ -25,6 +25,7 @@ vim-cpp-enhanced-highlight
 vim-endwise
 vim-fugitive
 vim-glaive
+vim-go
 vim-indent-object
 vim-maktaba
 vim-markdown
