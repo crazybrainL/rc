@@ -50,8 +50,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" vim-go install
 NeoBundle 'fatih/vim-go'
 
-
-
 "" Recommended to install
 "" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc.vim', {
