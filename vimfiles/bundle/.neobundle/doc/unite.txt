@@ -1756,6 +1756,12 @@ the context dictionary.
 		Note: It is old prompt behavior.
 		Default: no-prompt-visible
 
+						*unite-options-prompt-focus*
+		-prompt-focus
+		Move to prompt if unite enters insert mode.
+		Note: It is old prompt behavior.
+		Default: no-prompt-focus
+
 						*unite-options-prompt-direction*
 		-prompt-direction="top" or "below"
 		Specify the prompt direction.
@@ -2116,7 +2122,8 @@ file_rec, rec	Gather files recursive and nominates all file names under the
 		-custom-grep-search-word-highlight  : search word highlight
 
 						*unite-source-file_rec/async*
-file_rec/async	Similar to |unite-source-file_rec|, but get files asynchronously.
+file_rec/async	Similar to |unite-source-file_rec|, but get files
+		asynchronously with |g:unite_source_rec_async_command|.
 		Note: Requires |vimproc|.
 		Note: Requires the "ag" or "find" command.
 		Note: Windows "find" command is not supported.
@@ -2125,13 +2132,16 @@ file_rec/async	Similar to |unite-source-file_rec|, but get files asynchronously.
 		Note: If there are more than
 		|g:unite_source_file_rec_max_cache_files| candidates,
 		caching will be disabled.
+		Note: In windows environment, you must define
+		|g:unite_source_rec_async_command| variable.
 
 		Source arguments:
 		1. the target directories splitted by newlines.
 
 						*unite-source-file_rec/neovim*
 file_rec/neovim	Similar to |unite-source-file_rec|, but get files
-		asynchronously by neovim job APIs.
+		asynchronously by neovim job APIs with
+		|g:unite_source_rec_async_command|.
 		Note: Requires neovim and the "find" command.
 		Note: Windows "find" command is not supported.
 		Note: If you edit one of the files in Vim, the source will
@@ -3918,5 +3928,9 @@ A: You can use eval arguments feature.
 >
 	Unite grep:`=glob('/dir1/*.txt')."\n".glob('/dir2/*.txt')`
 <
+Q: Unite's cursor does not move to prompt line automatically.
+
+A: You can use |unite-options-prompt-focus| option for it.
+
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:

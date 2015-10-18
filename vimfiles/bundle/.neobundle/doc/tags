@@ -682,6 +682,7 @@ airline-troubleshooting	airline.txt	/*airline-troubleshooting*
 airline-virtualenv	airline.txt	/*airline-virtualenv*
 airline-whitespace	airline.txt	/*airline-whitespace*
 airline-windowswap	airline.txt	/*airline-windowswap*
+airline-wordcount	airline.txt	/*airline-wordcount*
 airline-writing-extensions	airline.txt	/*airline-writing-extensions*
 airline.txt	airline.txt	/*airline.txt*
 b:codefmt_formatter	codefmt.txt	/*b:codefmt_formatter*
@@ -1666,6 +1667,7 @@ unite-options-previewheight	unite.txt	/*unite-options-previewheight*
 unite-options-profile-name	unite.txt	/*unite-options-profile-name*
 unite-options-prompt	unite.txt	/*unite-options-prompt*
 unite-options-prompt-direction	unite.txt	/*unite-options-prompt-direction*
+unite-options-prompt-focus	unite.txt	/*unite-options-prompt-focus*
 unite-options-prompt-visible	unite.txt	/*unite-options-prompt-visible*
 unite-options-quick-match	unite.txt	/*unite-options-quick-match*
 unite-options-resume	unite.txt	/*unite-options-resume*
@@ -1867,6 +1869,7 @@ vimfiler-options-edit-action	vimfiler.txt	/*vimfiler-options-edit-action*
 vimfiler-options-explorer	vimfiler.txt	/*vimfiler-options-explorer*
 vimfiler-options-explorer-columns	vimfiler.txt	/*vimfiler-options-explorer-columns*
 vimfiler-options-find	vimfiler.txt	/*vimfiler-options-find*
+vimfiler-options-fnamewidth	vimfiler.txt	/*vimfiler-options-fnamewidth*
 vimfiler-options-force-hide	vimfiler.txt	/*vimfiler-options-force-hide*
 vimfiler-options-force-quit	vimfiler.txt	/*vimfiler-options-force-quit*
 vimfiler-options-horizontal	vimfiler.txt	/*vimfiler-options-horizontal*

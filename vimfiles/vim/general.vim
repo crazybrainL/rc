@@ -228,3 +228,5 @@ autocmd FileType mkd noremap <C-d>  :call CheckMarkdownTodoItem()<cr>
 " "}}}
 
 " vim: ft=vim foldmethod=marker foldcolumn=1 
+
+"execute pathogen#infect()

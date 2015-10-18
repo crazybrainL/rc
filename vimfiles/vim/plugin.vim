@@ -47,8 +47,16 @@ call neobundle#begin(expand('~/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+"" pathogen install
+"NeoBundle 'tpope/vim-pathogen'
+
 "" vim-go install
 NeoBundle 'fatih/vim-go'
+"NeoBundle 'Blackrush/vim-gocode'
+
+
+"" CCTree install
+"NeoBundle 'hari-rangarajan/CCTree'
 
 "" Recommended to install
 "" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
@@ -207,12 +215,21 @@ NeoBundle 'octol/vim-cpp-enhanced-highlight'
 "" Autocomplete
 if g:yen3_auto_complete_selet == 1
 " Track the engine.
+" gocode support
 NeoBundle 'Valloric/YouCompleteMe', {
      \ 'build' : {
-     \     'mac' : 'python install.py --clang-completer --system-libclang',
-     \     'unix' : 'python install.py --clang-completer --system-libclang',
+     \     'mac' : 'python install.py --clang-completer --system-libclang --gocode-completer',
+     \     'unix' : 'python install.py --clang-completer --system-libclang --gocode-completer',
      \    }
      \ }
+
+"" no gocode support
+"NeoBundle 'Valloric/YouCompleteMe', {
+     "\ 'build' : {
+     "\     'mac' : 'python install.py --clang-completer --system-libclang',
+     "\     'unix' : 'python install.py --clang-completer --system-libclang',
+     "\    }
+     "\ }
 
 NeoBundle 'SirVer/ultisnips'
 
@@ -268,6 +285,43 @@ nnoremap <leader>gs :YcmDiags<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<cr>
+
+""""""""""""""""""""""""
+" whlin YouCompleteMe setting
+let g:ycm_show_diagnostics_ui = 0
+"let g:ycm_always_populate_location_list = 1
+
+"let g:ycm_register_as_syntastic_checker = 1
+
+""YCM will put icons in Vim's gutter on lines that have a diagnostic set.
+""Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+""highlighting
+"let g:ycm_enable_diagnostic_signs = 1
+"let g:ycm_enable_diagnostic_highlighting = 0
+"let g:ycm_always_populate_location_list = 1 "default 0
+"let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+
+"let g:ycm_complete_in_strings = 1 "default 1
+"let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
+"let g:ycm_path_to_python_interpreter = '' "default ''
+
+
+"let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+"let g:ycm_server_log_level = 'info' "default info
+
+
+"let g:ycm_global_ycm_extra_conf = '' "where to search for .ycm_extra_conf.py if not found
+"let g:ycm_confirm_extra_conf = 1
+
+
+"let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+"let g:ycm_filetype_whitelist = { '*': 1 }
+"let g:ycm_key_invoke_completion = '<C-Space>'
+
+
+
+
 " }}}
 endif
 
@@ -734,6 +788,34 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -I./inc'
 
 "" setting for javascript
 let g:syntastic_javascript_checkers = ['eslint']
+
+""""""""""""""""""""""
+" whlin Syntastic setting
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_always_populate_loc_list = 1
+
+
+"let g:syntastic_cpp_checkers = ['gcc']
+
+"let g:syntastic_auto_jump = 1
+"let g:syntastic_enable_balloons = 1
+
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra'
+
+
+
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_auto_refresh_includes = 1
+
+""let b:syntastic_cpp_cflags = '-I/home/user/dev/cpp/boost_1_55_0'
+"let g:syntastic_cpp_include_dirs = [ 
+            "\ '/opt/boost_1_55_0',
+            "\ '/opt/cryptopp-5.6.2',
+            "\ '/opt/llvm_install/include/llvm',
+            "\ '/opt/llvm_install/include/clang' ]
 
 " }}}
 " EasyMotion: {{{
