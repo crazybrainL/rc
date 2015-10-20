@@ -53,7 +53,33 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" vim-go install
 NeoBundle 'fatih/vim-go'
 "NeoBundle 'Blackrush/vim-gocode'
-
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "" CCTree install
 "NeoBundle 'hari-rangarajan/CCTree'
@@ -136,8 +162,9 @@ NeoBundle 'google/vim-glaive'
 
 
 "" IDE 
-"NeoBundle 'majutsushi/tagbar'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'MarcWeber/vim-addon-mw-utils'
+nmap <F8> :TagbarToggle<CR>
 
 "" Trace code
 "NeoBundleLazy 'simplyzhao/cscope_maps.vim', { 'autoload' : {
