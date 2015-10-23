@@ -225,7 +225,7 @@ NeoBundleLazy 'gregsexton/gitv', { 'autoload' : {
       \ }}
 
 "" Vim Color theme
-NoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
+NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
 
 "" Syntax check
 NeoBundle 'scrooloose/syntastic'
