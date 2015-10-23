@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 ## Link dictionay and files
-ln -s `pwd`/screenrc ~/.screenrc 
-ln -s `pwd`/gitconfig ~/.gitconfig
+rm ~/.screenrc | ln -s `pwd`/screenrc ~/.screenrc 
+rm ~/.gitconfig | ln -s `pwd`/gitconfig ~/.gitconfig
