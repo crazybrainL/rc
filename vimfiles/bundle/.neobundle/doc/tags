@@ -71,11 +71,13 @@
 'g:go_highlight_trailing_whitespace_error'	vim-go.txt	/*'g:go_highlight_trailing_whitespace_error'*
 'g:go_jump_to_error'	vim-go.txt	/*'g:go_jump_to_error'*
 'g:go_metalinter_command'	vim-go.txt	/*'g:go_metalinter_command'*
+'g:go_metalinter_deadline'	vim-go.txt	/*'g:go_metalinter_deadline'*
 'g:go_metalinter_enabled'	vim-go.txt	/*'g:go_metalinter_enabled'*
 'g:go_oracle_scope'	vim-go.txt	/*'g:go_oracle_scope'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
+'g:go_test_timeout'	vim-go.txt	/*'g:go_test_timeout'*
 'g:go_textobj_enabled'	vim-go.txt	/*'g:go_textobj_enabled'*
 'g:pymode'	pymode.txt	/*'g:pymode'*
 'g:pymode_breakpoint'	pymode.txt	/*'g:pymode_breakpoint'*
@@ -529,6 +531,7 @@ GoToDefinition	youcompleteme.txt	/*GoToDefinition*
 GoToImplementation	youcompleteme.txt	/*GoToImplementation*
 GoToImplementationElseDeclaration	youcompleteme.txt	/*GoToImplementationElseDeclaration*
 GoToImprecise	youcompleteme.txt	/*GoToImprecise*
+GoToInclude	youcompleteme.txt	/*GoToInclude*
 LONG_BIT-definition-appears-wrong-for-platform	youcompleteme.txt	/*LONG_BIT-definition-appears-wrong-for-platform*
 Logger.Debug()	maktaba.txt	/*Logger.Debug()*
 Logger.Error()	maktaba.txt	/*Logger.Error()*
@@ -1104,7 +1107,6 @@ i_<Plug>(unite_move_head)	unite.txt	/*i_<Plug>(unite_move_head)*
 i_<Plug>(unite_move_left)	unite.txt	/*i_<Plug>(unite_move_left)*
 i_<Plug>(unite_move_right)	unite.txt	/*i_<Plug>(unite_move_right)*
 i_<Plug>(unite_narrowing_input_history)	unite.txt	/*i_<Plug>(unite_narrowing_input_history)*
-i_<Plug>(unite_narrowing_path)	unite.txt	/*i_<Plug>(unite_narrowing_path)*
 i_<Plug>(unite_new_candidate)	unite.txt	/*i_<Plug>(unite_new_candidate)*
 i_<Plug>(unite_print_candidate)	unite.txt	/*i_<Plug>(unite_print_candidate)*
 i_<Plug>(unite_print_message_log)	unite.txt	/*i_<Plug>(unite_print_message_log)*
