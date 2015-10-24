@@ -9,11 +9,11 @@
 此外, 為了方便日後的管理和重建, 在家目錄下新增 rc_files, 
 並在將 rc, zshrc, vimfilers 一起從 github 抓到 rc_files 資料夾中.
 gitconfig, screenrc, zshrc, vimrc 在 rc 資料夾中修改後, 
-透過
+透過下列將 rc_files 的內容更新.
 
- - update_rc.sh
- - update_vimfiles.sh, 
- - update_zshrc.sh
+ - update_rc.sh (in rc file)
+ - update_vimfiles.sh (in vimfilers file)
+ - update_zshrc.sh (in zshrc file)
 
 將 rc_files 的內容更新.
 
