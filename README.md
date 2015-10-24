@@ -21,7 +21,7 @@ gitconfig, screenrc, zshrc, vimrc 在 rc 資料夾中修改後,
 在 rc 建制環境, 在 rc_files 作 rc 文件的更新和上載到 github 的處理.
 
 
-## pre-install
+## Pre-install
 
 Mac OSX
 
