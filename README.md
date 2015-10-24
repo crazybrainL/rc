@@ -15,7 +15,6 @@ gitconfig, screenrc, zshrc, vimrc 在 rc 資料夾中修改後,
  - update_vimfiles.sh (in vimfilers file)
  - update_zshrc.sh (in zshrc file)
 
-將 rc_files 的內容更新.
 
 ## 設計概念
 
