@@ -4,7 +4,7 @@
 
 本開發環境的建置, 包含了 gitconfig, screenrc, zshrc, vimrc.
 在家目錄的 Document 內建置 rc 目錄, 之後再將 [zshrc] 和 [vimfilers]
-從 github 上抓到 rc 目錄內, 作後續的安裝. 
+從 github 上抓到 rc 目錄內作後續的安裝. 
 
 此外, 為了方便日後的管理和重建, 在家目錄下新增 rc_files, 
 並在將 rc, zshrc, vimfilers 一起從 github 抓到 rc_files 資料夾中.
