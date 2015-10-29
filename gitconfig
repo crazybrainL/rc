@@ -2,8 +2,11 @@
 	email = whlin626@gmail.com
 	name = whlin
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	st = status
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
+    lg1 = log --graph --abbrev-commit --date=short --pretty=format:'%C(bold red)%h%Creset %Creset -%C(bold yellow)%d%Creset %C(bold green)(%cr) %C(bold blue)<%an>%Creset %s' --all
+    lg2 = log --graph --abbrev-commit --date=short --pretty=format:'%C(bold red)%h%Creset %Creset -%C(bold yellow)%d%Creset %C(bold green)(%cr) %C(bold blue)<%an>%Creset %s %C(bold cyan)[%ad]' --all
+    ;lg = !"git lg"
+    st = status
     edit-last-commit = !vim `git diff-tree -r --name-only HEAD HEAD~1`
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
@@ -13,6 +16,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
+	tree = log --oneline --decorate --all --graph
 [color]
     diff = auto
     status = auto
