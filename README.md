@@ -2,7 +2,6 @@
 
 ## Preface
 
-daggagag
 為了方便日後的管理和重建, 在家目錄下新增 rc_files, 
 並將 rc, zshrc, vimfilers 一起從 github 抓到 rc_files 資料夾中.
 當 gitconfig, screenrc, zshrc, vimrc... 修改後, 
