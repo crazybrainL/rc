@@ -2,20 +2,12 @@
 
 ## Preface
 
-為了方便日後的管理和重建, 在家目錄下新增 rc_files, 
-並將 rc, zshrc, vimfilers 一起從 github 抓到 rc_files 資料夾中.
-當 gitconfig, screenrc, zshrc, vimrc... 修改後, 
-透過下列檔案將 rc_files 的內容更新.
-
- - update_rc.sh (in rc file)
- - update_vimfiles.sh (in vimfilers file)
- - update_zshrc.sh (in zshrc file)
-
-
-## 設計概念
-
-在 rc 建制環境, 在 rc_files 作 rc 文件的更新和上載到 github 的處理.
-
+本設定包含了 rc, vimfilers, zshrc 等相關環境的設定
+請根據以下順序, 將相關的環境設定安裝:
+    
+ - [rc] 
+ - [zshrc]
+ - [vimfilers]
 
 ## Pre-install
 
@@ -61,22 +53,17 @@ $ brew install vim --with-lua --with-python
 
 ## Installation
 
-進入 家目錄的 Document 資料夾, 並 clone the repo from github:
+習慣上, 我會在 ~/Document/ 資料夾中進行安裝,
+進入 家目錄的 Document 資料夾, git clone the rc.git from github
+再進入 rc 資料夾中, 執行 ./install_unix.sh 來進行 rc 檔案的設定和安裝即可.
 
 ```sh
 $ cd ~/Document
 $ git clone https://github.com/whlin/rc.git
+$ cd rc
+$ ./install_unix.sh
 ```
 
-## local rc_files 目錄設置
-
-在家目錄, 創建 rc_files 資料夾, 並將 rc 檔案 git clone 進來
-
-```sh
-$ mkdir rc_files
-$ cd ~/rc_files
-$ git clone https://github.com/whlin/rc.git
-```
 
 
 [rc]: <https://github.com/whlin/rc>
