@@ -54,7 +54,7 @@ $ brew install vim --with-lua --with-python
 ## Installation
 
 習慣上, 我會在 ~/Document/ 資料夾中進行安裝,
-進入 家目錄的 Document 資料夾, git clone the rc.git from github
+進入家目錄的 Document 資料夾, git clone the rc.git from github
 再進入 rc 資料夾中, 執行 ./install_unix.sh 來進行 rc 檔案的設定和安裝即可.
 
 ```sh
@@ -63,8 +63,6 @@ $ git clone https://github.com/whlin/rc.git
 $ cd rc
 $ ./install_unix.sh
 ```
-
-
 
 [rc]: <https://github.com/whlin/rc>
 [zshrc]: <https://github.com/whlin/zshrc>
