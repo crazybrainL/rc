@@ -1,6 +1,6 @@
 [user]
-	email = whlin626@gmail.com
-	name = whlin
+	email = wuhsuan_lin@trend.com.tw
+	name = Wu-Hsuan Lin
 [alias]
     lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
     lg1 = log --graph --abbrev-commit --date=short --pretty=format:'%C(bold red)%h%Creset %Creset -%C(bold yellow)%d%Creset %C(bold green)(%cr) %C(bold blue)<%an>%Creset %s' --all
