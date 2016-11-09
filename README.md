@@ -126,7 +126,6 @@ $ which zsh
 ```
 
 #### Install oh-my-zsh
-Install oh-my-zsh on top of zsh to get additional functionality
 ```sh
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
