@@ -43,7 +43,8 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 
 #### What Does Homebrew Do?
 Homebrew installs packages to their own directory and then symlinks their files into /usr/local.
-Get more information
+
+##### Get more information
 ```sh
 $ brew -h
 ```
@@ -102,14 +103,15 @@ $ which cmake cscope ctags lua tree
 ### zsh
 #### Install zsh, oh-my-zsh And zsh-completions
 
-**Install zsh**
+##### Install zsh
 ```sh
 $ brew install zsh
 
 # Change to new zsh (/usr/local/bin/zsh).
 $ chsh -s /usr/local/bin/zsh
 ```
-**Checking**
+
+Check install succeeds
 ```sh
 # Step 1.
 $ tree /usr/local/Cellar -L 1 (layer one)
@@ -128,7 +130,7 @@ $ which zsh
 /usr/local/bin/zsh
 ```
 
-**Install oh-my-zsh**
+##### Install oh-my-zsh
 Install oh-my-zsh on top of zsh to get additional functionality
 ```sh
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -139,12 +141,13 @@ If you want to install other path you can use git clone and remeber to change .z
 $ git clone git://github.com/robbyrussell/oh-my-zsh.git [your_path]
 ```
 
-**Install zsh-completions**
+##### Install zsh-completions
 Reference: [icarus4]
 ```sh
 $ brew install zsh-completions  
 ```
-**Checking**
+
+Check install succeeds
 You can use **ls** command to make sure that package install succeeds.
 ```sh
 $ ls /usr/local/share
