@@ -46,17 +46,20 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 ```
 
 #### What Does Homebrew Do?
-Homebrew installs packages to their own directory. (/usr/local/Cellar)
-You should install tree by brew, this command will show the Cellar file list in one layer
+Homebrew installs packages to their own directory. (/usr/local/Cellar) Example:
 ```sh
-$ tree Cellar -L 1 
-```
+# This command will show the Cellar file list in one layer
+$ brew install tree
+$ tree Cellar -L 1
+Cellar
+├── ...
+├── tree
+├── ...
 
-Symlinks their files into /usr/local. Example:
-```sh
+# Symlinks their files into /usr/local. Example:
 $ ls -l /usr/local/bin
+bin/wget -> ../Cellar/wget/1.16.1/bin/wget
 ```
-> bin/wget -> ../Cellar/wget/1.16.1/bin/wget
 
 Get other information
 ```sh
