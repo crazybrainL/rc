@@ -1,16 +1,14 @@
 # whlin's Mac OS X Guide
 
-## Install List:
 ### Software
 * [iterm2] - o
 * Xcode - o 
 
 ### Package And Programming Language:
 * [homebrew] - o
-    - Install packages - o
 * zsh
     - Install zsh, oh my zsh and zsh-completions - o
-    - Setup zshrc - o
+    - Setup [zshrc] - o
 * [go-lang]
 * python
     - Simple Python version management: [pyenv]
@@ -23,12 +21,10 @@
 
 ## Software
 ### iterm2
-#### Install
 
 Download stable releases from following link: [iterm2]
 
 ### Xcode
-#### Install
 
 * Install [Xcode] from the App store or the Apple developer website.
 * Install Xcode command line tool:
@@ -46,7 +42,7 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 ```
 
 #### What Does Homebrew Do?
-Homebrew installs packages to their own directory and then symlinks their files into /usr/local.
+Homebrew installs packages to their own directory and then symlinks their files into /usr/local. <\br>
 Get more information
 ```sh
 $ brew -h
@@ -61,12 +57,12 @@ $ brew -h
     - This progeam can show the file list.
 6. ...
 
-**Command**
 ```sh
 $ brew install cmake cscope ctags lua tree ...
 ```
 
-After installing, you could 
+After installing, you could
+
 1. Use **tree** to make sure that brew install succeeds.
 2. **cd** to /usr/local/bin and use **ls -l** to make sure that symbolic link is correct.
 3. Use **which** to find out where a program is located.  
