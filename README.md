@@ -9,8 +9,8 @@
 * [homebrew] - o
     - Install packages - o
 * zsh
-    - My github zshrc: [zshrc]
-    - Bash to zsh (oh-my-zsh) 設定心得: [here] [icarus4]
+    - Install zsh, oh my zsh and zsh-completions - o
+    - Setup zshrc - o
 * [go-lang]
 * python
     - Simple Python version management: [pyenv]
@@ -46,71 +46,124 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 ```
 
 #### What Does Homebrew Do?
-Homebrew installs packages to their own directory. (/usr/local/Cellar) Example:
-```sh
-# This command will show the Cellar file list in one layer
-$ brew install tree
-$ tree Cellar -L 1
-Cellar
-├── ...
-├── tree
-├── ...
-
-# Symlinks their files into /usr/local. Example:
-$ ls -l /usr/local/bin
-bin/wget -> ../Cellar/wget/1.16.1/bin/wget
-```
-
-Get other information
+Homebrew installs packages to their own directory and then symlinks their files into /usr/local.
+Get more information
 ```sh
 $ brew -h
 ```
 
 #### Install Packages
+1. cmake  
+2. cscope 
+3. ctags  
+4. lua    
+5. tree
+    - This progeam can show the file list.
+6. ...
 
-> 1. lua
-> 2. ctags
-> 3. cscope
-> 4. cmake
+**Command**
+```sh
+$ brew install cmake cscope ctags lua tree ...
+```
+
+After installing, you could 
+1. Use **tree** to make sure that brew install succeeds.
+2. **cd** to /usr/local/bin and use **ls -l** to make sure that symbolic link is correct.
+3. Use **which** to find out where a program is located.  
 
 ```sh
-$ brew install lua 
-$ brew install ctags
-$ brew install cscope
-$ brew install cmake
+# Step 1.
+$ tree /usr/local/Cellar -L 1 (layer one)
+/usr/local/Cellar
+├── ...
+├── cmake
+├── cscope
+├── ctags
+├── lua
+├── tree
+├── ...
 
-# cd /usr/local/bin to check the symbolic link of these packages.
-# ...
-# brew -> /usr/local/Homebrew/bin/brew
-# ccmake -> ../Cellar/cmake/3.6.3/bin/ccmake
-# cmake -> ../Cellar/cmake/3.6.3/bin/cmake
-# cscope -> ../Cellar/cscope/15.8b/bin/cscope
-# ctags -> ../Cellar/ctags/5.8_1/bin/ctags
-# ctest -> ../Cellar/cmake/3.6.3/bin/ctest
-# ex -> ../Cellar/vim/8.0.0071/bin/ex
-# ...
+# Step 2.
+$ cd /usr/local/bin
+$ ls -l
+...
+cmake -> ../Cellar/cmake/3.6.3/bin/cmake
+cscope -> ../Cellar/cscope/15.8b/bin/cscope
+ctags -> ../Cellar/ctags/5.8_1/bin/ctags
+lua -> ../Cellar/lua/5.2.4_4/bin/lua
+tree -> ../Cellar/tree/1.7.0/bin/tree
+...
+
+# Step 3.
+$ which cmake cscope ctags lua tree
+/usr/local/bin/cmake
+/usr/local/bin/cscope
+/usr/local/bin/ctags
+/usr/local/bin/lua
+/usr/local/bin/tree
 ```
 
 ### zsh
-#### Install
+#### Install zsh, oh-my-zsh And zsh-completions
 
+**Install zsh**
 ```sh
-$ brew install zsh 
+$ brew install zsh
+
+# Change to new zsh (/usr/local/bin/zsh).
+$ chsh -s /usr/local/bin/zsh
+```
+**Checking**
+```sh
+# Step 1.
+$ tree /usr/local/Cellar -L 1 (layer one)
+/usr/local/Cellar
+├── ...
+├── zsh
+├── ...
+
+# Step 2.
+$ cd /usr/local/bin/
+$ ls -l
+zsh -> ../Cellar/zsh/5.2/bin/zsh
+
+# Step 3.
 $ which zsh
 /usr/local/bin/zsh
-
-#//// /usr/local/bin/zsh -> ../Cellar/zsh/5.2/bin/zsh
 ```
 
-### zsh-completions
-```sh
-$ brew install zsh-completions
-$  
-```
-### Oh My Zsh
-
+**Install oh-my-zsh**
 Install oh-my-zsh on top of zsh to get additional functionality
+```sh
+$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
+If you want to install other path you can use git clone and remeber to change .zshrc setting.
+```sh
+$ git clone git://github.com/robbyrussell/oh-my-zsh.git [your_path]
+```
+
+**Install zsh-completions**
+Reference: [icarus4]
+```sh
+$ brew install zsh-completions  
+```
+**Checking**
+You can use **ls** command to make sure that package install succeeds.
+```sh
+$ ls /usr/local/share
+aclocal         doc             git-gui         info            systemtap       zsh-completions
+autoconf        emacs           gitk            lua             vim
+cmake           git-core        gitweb          man             zsh
+```
+
+#### Setup zshrc
+```sh
+$ cd ~/Documents/
+$ git clone https://github.com/whlin/zshrc.git
+$ cd ~/Documents/zshrc
+$ ./install_unix.sh
+```
 ---
 
 ### Virtualbox and Vagrant
