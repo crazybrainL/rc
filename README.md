@@ -42,7 +42,7 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 ```
 
 #### What Does Homebrew Do?
-Homebrew installs packages to their own directory and then symlinks their files into /usr/local. <\br>
+Homebrew installs packages to their own directory and then symlinks their files into /usr/local.
 Get more information
 ```sh
 $ brew -h
