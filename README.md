@@ -21,6 +21,7 @@
 * [virtualbox] and [vagrant]
     - Plugin: [vagrant-vbguest]
 * Setup [rc]
+
 ---
 
 ## Software
