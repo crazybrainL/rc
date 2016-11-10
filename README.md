@@ -1,17 +1,17 @@
 # whlin's Mac OS X Guide
 
 ### Software
-* [iterm2] - o
-* Xcode - o 
+* [iterm2]
+* Xcode
 
 ### Package And Programming Language:
-* [homebrew] - o
+* [homebrew]
 * zsh
-    - Install zsh - o
-    - Install oh-my-zsh - o 
-    - Install zsh-completions - o
-    - Setup [zshrc] - o
-* [go-lang]
+    - Install zsh
+    - Install oh-my-zsh 
+    - Install zsh-completions
+    - Setup [zshrc]
+* [golang]
 * python
     - Simple Python version management: [pyenv]
 * [node]
@@ -149,14 +149,134 @@ autoconf        emacs           gitk            lua             vim
 cmake           git-core        gitweb          man             zsh
 ```
 
-#### Setup zshrc
+#### Setup [zshrc]
 ```sh
 $ cd ~/Documents/
 $ git clone https://github.com/whlin/zshrc.git
 $ cd ~/Documents/zshrc
 $ ./install_unix.sh
 ```
----
+
+### Golang
+
+[Download the archive](https://golang.org/dl/) and extract it into /usr/local, creating a Go tree in /usr/local/go.
+For example:
+```sh
+tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+```
+
+Add /usr/local/go/bin to the PATH environment variable. (~/.zshec has already setting)
+```sh
+export PATH=$PATH:/usr/local/go/bin
+```
+
+### Python
+#### Simple Python version management: [pyenv]
+
+Install:
+```sh
+$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+```
+
+Uninstall: pyenv is installed within $PYENV_ROOT (default: ~/.pyenv). To uninstall, just remove it:
+```sh
+$ rm -fr ~/.pyenv
+```
+and remove these three lines from .bashrc:
+```
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+#### Install python using pyenv
+
+List all versions of python
+```sh
+$ pyenv install --list
+...
+2.7.10
+2.7.11
+2.7.12
+3.0.1
+3.1
+3.1.1
+...
+```
+
+Install one of python versions
+```sh
+$ pyenv install 2.7.12
+```
+
+See python versions
+```sh
+$ pyenv versions
+*  system
+   2.7.12
+```
+
+Change python versions
+```sh
+$ pyenv global 2.7.12
+   system
+*  2.7.12
+```
+
+Reference:
+* pyenv Command Reference: [ref](http://v2in.com/pyenv-installation-and-usage.html)
+* Simple Python Version Management: [pyenv]
+
+### [Node]
+#### Install Node
+```sh
+$ brew install node
+```
+
+#### What is npm?
+npm makes it easy for JavaScript developers to share and reuse code, and it makes it easy to update the code that you're sharing.
+
+#### Installing npm packages locally or globally
+There are two ways to install npm packages: locally or globally. You choose which kind of installation to use based on how you want to use the package.
+
+If you want to depend on the package from your own module using something like Node.js' require, then you want to install locally, which is npm install's default behavior. 
+
+On the other hand, if you want to use it as a command line tool, something like the grunt CLI, then you want to install it globally.
+
+
+#### [Installing npm packages locally](https://docs.npmjs.com/getting-started/installing-npm-packages-locally)
+
+A package can be downloaded with the command
+```sh
+$ npm install <package_name>
+```
+This will create the node_modules directory in your current directory(if one doesn't exist yet), and will download the package to that directory.
+
+#### [Installing npm packages globally](https://docs.npmjs.com/getting-started/installing-npm-packages-globally)
+
+To download packages globally, you simply use the command
+```sh
+$ npm install -g <package_name>
+```
+The package will be installed in the global package set: node_modules (Path: /usr/local/lib/node_modules)
+
+Reference: 
+* [How to Install Node.js and NPM on a Mac](http://blog.teamtreehouse.com/install-node-js-npm-mac)
+* [nodeJS document] [node]
+
+### vim
+#### Install vim
+```sh
+$ brew install vim --with-lua --with-python
+```
+
+#### Setup [vimfilers]
+```sh
+$ cd ~/Document
+$ git clone https://github.com/whlin/vimfilers.git
+$ cd vimfiles
+$ ./install_unix.sh
+```
 
 ### Virtualbox and Vagrant
 #### Install
@@ -164,24 +284,12 @@ Download the install package(.dmg) through following links to install virtualbox
 * virtualbox: <https://www.virtualbox.org/wiki/Downloads>
 * vagrant: <https://www.vagrantup.com/downloads.html>
 
-### Install Vagrant Plugin
+#### Install Vagrant Plugin
 * Reference: <https://github.com/dotless-de/vagrant-vbguest>
 
 ```sh
 $ vagrant plugin install vagrant-vbguest
 ```
-
-#### Install Package And Programming Language:
-> 5. vim
-> 6. python
-> 7. node
-
-
-```sh
-$ brew install vim --with-lua --with-python
-$ brew install node
-```
-
 
 4. (Optional) 安裝 python 所需的套件 (需先用 homebrew 安裝 python)
 
@@ -238,6 +346,6 @@ ___
 [vagrant-vbguest]: <https://github.com/dotless-de/vagrant-vbguest>
 
 <!--programming language link-->
-[go-lang]: <https://golang.org/doc/install>
+[golang]: <https://golang.org/doc/install>
 [pyenv]: <https://github.com/yyuu/pyenv-installer>
-[node]: <http://blog.teamtreehouse.com/install-node-js-npm-mac>
+[node]: <https://docs.npmjs.com/>
