@@ -16,9 +16,11 @@
     - Simple Python version management: [pyenv]
 * [node]
 * vim
+    - Setup [vimfilers]
+* haskell
 * [virtualbox] and [vagrant]
     - Plugin: [vagrant-vbguest]
-
+* Setup [rc]
 ---
 
 ## Software
@@ -208,6 +210,11 @@ Install one of python versions
 ```sh
 $ pyenv install 2.7.12
 ```
+[Note] For this installation, it could also install pip for this python version. If not, you could install pip using easy_install.
+
+```sh
+$ easy_install pip
+```
 
 See python versions
 ```sh
@@ -223,9 +230,52 @@ $ pyenv global 2.7.12
 *  2.7.12
 ```
 
+#### Install Python Package
+Python Package manager
+* pip
+* easy_install
+
+Example: Install pyflakes
+```sh
+$ pip install pyflakes
+```
+
+How to list all installed packages and their versions in Python?
+```sh
+$ pip freeze
+```
+
+#### Find out your python site-package path
+```sh
+$ python -c "import site; print(site.getsitepackages())"
+```
+
+you can use pip show to see more information for your installed python package, Example: pyflakes
+```sh
+$ pip show pyflakes
+Name: pyflakes
+Version: 1.3.0
+Summary: passive checker of Python programs
+Home-page: https://github.com/pyflakes/pyflakes
+Author: A lot of people
+Author-email: code-quality@python.org
+License: MIT
+Location: /Users/whlin/.pyenv/versions/2.7.12/Python.framework/Versions/2.7/lib/python2.7/site-packages
+Requires:
+```
+
+You need to figure out what is going on when using pyenv and pip install package to build your develop environment.
+When you use pip and easy_install to install package, where is the package? 
+* The pyenv project architecture.
+* pip install package flow
+
 Reference:
-* pyenv Command Reference: [ref](http://v2in.com/pyenv-installation-and-usage.html)
-* Simple Python Version Management: [pyenv]
+* [pyenv Command Reference](http://v2in.com/pyenv-installation-and-usage.html)
+* [Simple Python Version Management: pyenv][pyenv]
+* Introduct Python Package manager pip and easy_install: 
+    * [link1](http://www.openfoundry.org/tw/tech-column/8536-introduction-of-python-extension-management-tools) 
+    * [link2](http://coopermaa2nd.blogspot.tw/2012/12/easyinstall-pip.html)
+* [pip document](https://pip.pypa.io/en/stable/)
 
 ### [Node]
 #### Install Node
@@ -272,10 +322,17 @@ $ brew install vim --with-lua --with-python
 
 #### Setup [vimfilers]
 ```sh
-$ cd ~/Document
+$ cd ~/Documents
 $ git clone https://github.com/whlin/vimfilers.git
 $ cd vimfiles
 $ ./install_unix.sh
+```
+
+#### Install haskell
+```sh
+$ brew install haskell-platform
+$ cabal install hasktags
+$ cabal install hlint
 ```
 
 ### Virtualbox and Vagrant
@@ -285,51 +342,20 @@ Download the install package(.dmg) through following links to install virtualbox
 * vagrant: <https://www.vagrantup.com/downloads.html>
 
 #### Install Vagrant Plugin
-* Reference: <https://github.com/dotless-de/vagrant-vbguest>
+* Reference: [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
 
 ```sh
 $ vagrant plugin install vagrant-vbguest
 ```
 
-4. (Optional) 安裝 python 所需的套件 (需先用 homebrew 安裝 python)
-
+### Setup [rc]
 ```sh
-$ pip install pyflakes
-
-```
-
-5. (Optional) 安裝 haskell 所需的套件 (需先用 homebrew 安裝 haskell-platform)
-```sh
-$ cabal install hasktags
-$ cabal install hlint
-```
-
-6. 安裝 Vim
-```sh
-$ brew install vim --with-lua --with-python
-```
-
-## Installation
-
-習慣上, 我會在 ~/Document/ 資料夾中進行安裝,
-進入家目錄的 Document 資料夾, git clone the rc.git from github
-再進入 rc 資料夾中, 執行 ./install_unix.sh 來進行 rc 檔案的設定和安裝即可.
-
-```sh
-$ cd ~/Document
+$ cd ~/Documents
 $ git clone https://github.com/whlin/rc.git
 $ cd rc
 $ ./install_unix.sh
 ```
-## Preface
 
-本設定包含了 rc, vimfilers, zshrc 等相關環境的設定
-請根據以下順序, 將相關的環境設定安裝:
-    
- - [rc] 
- - [zshrc]
- - [vimfilers]
-___
 
 <!--github link-->
 [rc]: <https://github.com/whlin/rc>
