@@ -248,7 +248,7 @@ $ pip freeze
 
 #### Find out your python site-package path
 ```sh
-$ python -c "import site; print(site.getsitepackages())"
+$ python -c "import site; print('\n'.join(site.getsitepackages()))"
 ```
 
 you can use pip show to see more information for your installed python package, Example: pyflakes
