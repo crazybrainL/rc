@@ -22,7 +22,7 @@ do
     else
         echo "$HOME/.${FILES[$i]} doesn't exist"
     fi
-    echo "ln -s $RC_HOME/${PATHS[$i]} $HOME/.${FILES[$i]}"
+    echo "ln -s $RC_HOME/${FILES[$i]} $HOME/.${FILES[$i]}"
     #ln -s ${PATHS[$i]} ${LINKS[$i]}
 done
 
