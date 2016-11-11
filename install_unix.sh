@@ -1,20 +1,28 @@
 #!/usr/bin/env bash
 
 ## Link dictionay and files
+RC_HOME="~/Documents/rc_test"
+
+if [[ ! -e  $RC_HOME ]]; then
+    git clone https://github.com/whlin/rc $RC_HOME 
+fi
+
 PATHS=(`pwd`/screenrc `pwd`/gitconfig)
 LINKS=(~/.screenrc ~/.gitconfig)
 
-tLen=${#PATHS[@]}
+FILES=(screenrc gitconfig)
+
+tLen=${#FILES[@]}
 
 for (( i=0; i<${tLen}; i++ ));
 do
-    if [[ -e ${LINKS[$i]} ]]; then
-        echo "rm ${LINKS[$i]}"
-        rm ${LINKS[$i]}
+    if [[ -e $HOME/.${FILES[$i]} ]]; then
+        echo "rm $HOME/.${FILES[$i]}"
+        #rm $HOME/.${FILES[$i]}
     else
-        echo "${LINKS[$i]} doesn't exist"
+        echo "$HOME/.${FILES[$i]} doesn't exist"
     fi
-    echo "ln -s ${PATHS[$i]} ${LINKS[$i]}"
-    ln -s ${PATHS[$i]} ${LINKS[$i]}
+    echo "ln -s $RC_HOME/${PATHS[$i]} $HOME/.${FILES[$i]}"
+    #ln -s ${PATHS[$i]} ${LINKS[$i]}
 done
 
