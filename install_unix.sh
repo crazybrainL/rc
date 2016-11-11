@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Link dictionay and files
-RC_HOME="~/Documents/rc_test"
+RC_HOME=~/Documents/rc_test
 
 if [[ ! -e  $RC_HOME ]]; then
     git clone https://github.com/whlin/rc $RC_HOME 
