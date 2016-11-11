@@ -3,7 +3,7 @@
 ## Link dictionay and files
 RCHOME=~/Documents/rc
 
-if [[ ! -e  $RCHOME ]]; then
+if [[ ! -e $RCHOME ]]; then
     git clone https://github.com/whlin/rc $RCHOME 
 fi
 
