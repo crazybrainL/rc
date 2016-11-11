@@ -4,7 +4,7 @@
 RC_HOME=~/Documents/rc_test
 
 if [[ ! -e  $RC_HOME ]]; then
-    git clone https://github.com/whlin/rc/install_unix.sh $RC_HOME 
+    git clone https://github.com/whlin/rc $RC_HOME 
 fi
 
 PATHS=(`pwd`/screenrc `pwd`/gitconfig)
