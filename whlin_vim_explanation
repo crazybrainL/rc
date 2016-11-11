@@ -1,3 +1,0 @@
-在 vimrc 裡面
-
-let mapleader = ","    設定 <leader> 按鍵對應, 可以替換成想要的按鍵, ex "\", ",", ....
