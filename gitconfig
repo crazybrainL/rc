@@ -1,5 +1,5 @@
 [user]
-	email = wuhsuan_lin@trend.com.tw
+	email = 
 	name = Wu-Hsuan Lin
 [alias]
     lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
